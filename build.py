@@ -14,5 +14,11 @@ css=f'''@font-face{{font-family:"HakgyoBareun";font-weight:400;font-display:swap
 @font-face{{font-family:"HakgyoMong";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{m}) format("woff2")}}'''
 img='data:image/webp;base64,'+base64.b64encode(open('yeram.webp','rb').read()).decode()
 out=src.replace('/*FONTS*/',css,1).replace('/*YERAM*/',img,1)
+import re
+def emb(m):
+    f='img/'+m.group(1)+'.webp'
+    return 'data:image/webp;base64,'+base64.b64encode(open(f,'rb').read()).decode()
+out=re.sub(r'\{\{IMG:(\w+)\}\}',emb,out)
+assert '{{IMG' not in out
 open('index.html','w',encoding='utf8').write(out)
 print(len(out))

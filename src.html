@@ -56,7 +56,7 @@ button{font-family:inherit;color:inherit}
 /* 피자 무대 */
 .table{flex:1;display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:"a p b" "c p d";gap:14px 18px;align-items:center}
 .pz{grid-area:p;display:grid;place-items:center;position:relative}
-.pz svg{width:clamp(200px,26vw,260px);height:auto;filter:drop-shadow(0 8px 10px rgba(180,100,30,.25))}
+.pz svg{width:clamp(210px,24vw,270px);height:auto;filter:drop-shadow(0 8px 10px rgba(180,100,30,.25))}
 .pz .left{position:absolute;bottom:-6px;font-size:13px;font-weight:700;color:var(--sub);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
 .slice{transition:transform .35s,opacity .35s;transform-origin:130px 130px;cursor:default}
 .slice.gone{opacity:0;transform:scale(.6)}
@@ -66,17 +66,14 @@ button{font-family:inherit;color:inherit}
 .kid:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(31,45,69,.35)}
 .kid.talk{border-color:var(--cheese);box-shadow:0 0 0 4px #FFF0C7}
 .k-a{grid-area:a}.k-b{grid-area:b}.k-c{grid-area:c}.k-d{grid-area:d}
-.face{grid-row:span 2;width:58px;height:58px;border-radius:50%;background:var(--skin,#FFD9B8);position:relative;border:3px solid var(--hair,#3A2A20);box-shadow:inset 0 10px 0 var(--hair,#3A2A20)}
-.face i{position:absolute;top:27px;width:7px;height:7px;border-radius:50%;background:var(--ink)}
-.face i:nth-child(1){left:15px}.face i:nth-child(2){right:15px}
-.face u{position:absolute;left:50%;top:37px;width:18px;height:9px;transform:translateX(-50%);border:3px solid var(--ink);border-top:0;border-radius:0 0 12px 12px;transition:.3s}
-.face.sad u{top:41px;border:3px solid var(--ink);border-bottom:0;border-radius:12px 12px 0 0;height:8px}
-.face.sad i{height:5px;top:29px}
-.face.happy u{height:11px;background:#E86A5A;border-color:var(--ink)}
+.face{grid-row:span 2;width:84px;height:84px;object-fit:contain;object-position:bottom;background:#fff;border-radius:50%;border:3px solid var(--line);transition:transform .25s}
+.kid:hover .face{transform:scale(1.06) rotate(-2deg)}
+.face.bump{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.12)}}
 .k-name{font-weight:700;font-size:17px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .badges{display:flex;gap:4px;flex-wrap:wrap;min-height:26px}
 .bd{display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 8px 2px 5px;animation:pop .35s both;transition:box-shadow .2s, transform .2s}
-.bd svg{width:16px;height:16px}
+.bd img{width:18px;height:18px;object-fit:contain}
 .bd.r1{background:var(--gukhoe-l);color:var(--gukhoe)}
 .bd.r2{background:var(--jeongbu-l);color:var(--jeongbu)}
 .bd.r3{background:var(--beobwon-l);color:var(--beobwon)}
@@ -88,7 +85,7 @@ button{font-family:inherit;color:inherit}
 .plate .cnt{margin-left:auto;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;color:var(--sub);white-space:nowrap}
 .plate .cnt b{font-size:20px;color:var(--ink)}
 .mini{display:flex;flex-wrap:wrap;gap:2px}
-.mini svg{width:22px;height:22px;animation:pop .3s both}
+.mini img{width:22px;height:24px;object-fit:contain;animation:pop .3s both}
 .say{grid-column:1 / -1;background:#FFF7DE;border-radius:14px;padding:6px 10px;font-weight:700;font-size:15px;position:relative;display:none;animation:pop .3s both}
 .say::before{content:"";position:absolute;left:24px;top:-7px;border:7px solid transparent;border-top:0;border-bottom-color:#FFF7DE}
 .say.on{display:block}
@@ -96,17 +93,18 @@ button{font-family:inherit;color:inherit}
 
 /* 3단계 카드 */
 .cards{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-content:center}
-.card3{border:0;background:none;padding:0;cursor:pointer;perspective:900px;min-height:250px;text-align:left}
-.card3 .inner{position:relative;width:100%;height:100%;min-height:250px;transition:transform .55s;transform-style:preserve-3d}
+.card3{border:0;background:none;padding:0;cursor:pointer;perspective:900px;min-height:300px;text-align:left}
+.card3 .inner{position:relative;width:100%;height:100%;min-height:300px;transition:transform .55s;transform-style:preserve-3d}
 .card3.open .inner{transform:rotateY(180deg)}
 .card3 .side{position:absolute;inset:0;border-radius:22px;padding:18px;backface-visibility:hidden;display:flex;flex-direction:column;gap:8px}
 .card3 .front{background:var(--c-l);border:3px solid var(--c);align-items:center;justify-content:center;text-align:center}
-.card3 .front .ic{width:64px;height:64px;border-radius:20px;background:#fff;display:grid;place-items:center;color:var(--c)}
-.card3 .front .ic svg{width:38px;height:38px}
+.card3 .front .ic{width:84px;height:84px;border-radius:20px;background:#fff;display:grid;place-items:center;color:var(--c)}
+.card3 .front .ic img{width:48px;height:48px;object-fit:contain}
 .card3 .front strong{font-size:22px;color:var(--c)}
 .card3 .front small{color:var(--sub);font-size:14px}
 .card3 .back{background:var(--c);color:#fff;transform:rotateY(180deg)}
 .card3 .back .from{font-size:13px;opacity:.85;font-weight:700}
+.card3 .back .pl{width:100%;height:120px;object-fit:contain;background:rgba(255,255,255,.92);border-radius:14px;padding:4px}
 .card3 .back strong{font-size:30px;line-height:1.1;font-family:var(--f-title);font-weight:400}
 .card3 .back p{margin:0;font-size:16px;font-weight:700}
 .card3 .back ul{margin:4px 0 0;padding-left:18px;font-size:14.5px}
@@ -123,7 +121,7 @@ button{font-family:inherit;color:inherit}
 .q-text{font-size:clamp(21px,3vw,28px);font-weight:700;max-width:30ch;text-wrap:balance;margin:0}
 .opts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .opt{border:3px solid var(--c,var(--line));background:var(--c-l,#fff);color:var(--c,var(--ink));border-radius:20px;padding:14px 22px;min-width:130px;font-size:19px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .15s, box-shadow .2s}
-.opt svg{width:30px;height:30px}
+.opt img{width:40px;height:40px;object-fit:contain}
 .opt:hover{transform:translateY(-3px);box-shadow:0 8px 0 -2px var(--c,var(--line))}
 .opt.plain{--c:var(--ink);--c-l:#fff;min-width:200px}
 .opt.right{background:var(--good);border-color:var(--good);color:#fff}
@@ -134,9 +132,9 @@ button{font-family:inherit;color:inherit}
 .dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
 .dots i.ok{background:var(--good)}.dots i.cur{background:var(--tomato)}
 .finish{display:flex;flex-direction:column;align-items:center;gap:12px}
-.finish .medal{display:flex;gap:10px}
-.finish .medal span{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;color:#fff;animation:pop .4s both}
-.finish .medal svg{width:34px;height:34px}
+.finish .art{display:flex;align-items:flex-end;justify-content:center;gap:4px}
+.finish .art .cheer{width:min(440px,52vw);height:auto}
+.finish .art .badge{width:120px;height:auto;animation:pop .5s .2s both;margin-left:-40px}
 .finish h3{margin:0;font-family:var(--f-title);font-weight:400;font-size:30px}
 .finish p{margin:0;color:var(--sub);font-weight:700}
 
@@ -157,7 +155,8 @@ button{font-family:inherit;color:inherit}
 
 /* 첫 화면 */
 .intro{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center}
-.intro svg.big{width:min(230px,60vw);height:auto;animation:spin 18s linear infinite}
+.intro img.big{width:min(520px,70vw);height:auto;max-height:46vh;object-fit:contain;transition:transform .3s}
+.intro img.big:hover{transform:scale(1.03) rotate(-1deg)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .intro h2{margin:0;font-family:var(--f-title);font-weight:400;font-size:clamp(28px,5vw,44px);line-height:1.15}
 .intro p{margin:0;color:var(--sub);font-weight:700;font-size:17px}
@@ -166,10 +165,8 @@ button{font-family:inherit;color:inherit}
 @media (max-width:760px){
   .table{grid-template-columns:1fr 1fr;grid-template-areas:"p p" "a b" "c d";gap:10px}
   .kid{grid-template-columns:1fr;justify-items:start;padding:8px}
-  .face{grid-row:auto;width:48px;height:48px;box-shadow:inset 0 8px 0 var(--hair)}
-  .face i{top:22px}.face i:nth-child(1){left:11px}.face i:nth-child(2){right:11px}
-  .face u{top:30px;width:14px}.face.sad u{top:33px}
-  .cards{grid-template-columns:1fr}
+  .face{grid-row:auto;width:60px;height:60px}
+    .cards{grid-template-columns:1fr}
   .card3,.card3 .inner{min-height:190px}
   .guide img{width:60px}
   .bubble{font-size:15.5px}
@@ -204,18 +201,16 @@ button{font-family:inherit;color:inherit}
 </div>
 
 <script>
-const IC={
-  r1:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M9 11h6M9 15h6M9 7h3"/></svg>',
-  r2:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 20h18z"/><circle cx="11" cy="14" r="1.4" fill="currentColor"/><circle cx="14" cy="10" r="1.2" fill="currentColor"/></svg>',
-  r3:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/><path d="m7.8 10.6 2 2 3.6-3.8"/></svg>'
-};
+const IC={r1:'<img src="{{IMG:icon_role_decide}}" alt="">',r2:'<img src="{{IMG:icon_role_share}}" alt="">',r3:'<img src="{{IMG:icon_role_check}}" alt="">'};
 const ROLE={r1:'정해요',r2:'나눠요',r3:'확인해요'};
-const MINI='<svg viewBox="0 0 24 24"><path d="M12 22 3 4c6-3 12-3 18 0z" fill="#FFC233" stroke="#E9A04B" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="9" r="1.8" fill="#E8462A"/><circle cx="14" cy="14" r="1.6" fill="#E8462A"/></svg>';
+const PIZZA='{{IMG:pizza_whole}}';
+const FACE={haneul:['{{IMG:kid_haneul_basic}}','{{IMG:kid_haneul_happy}}','{{IMG:kid_haneul_sad}}'],bada:['{{IMG:kid_bada_basic}}','{{IMG:kid_bada_happy}}','{{IMG:kid_bada_sad}}'],byeol:['{{IMG:kid_byeol_basic}}','{{IMG:kid_byeol_happy}}','{{IMG:kid_byeol_sad}}'],sol:['{{IMG:kid_sol_basic}}','{{IMG:kid_sol_happy}}','{{IMG:kid_sol_sad}}']};
+const MINI='<img src="{{IMG:pizza_slice}}" alt="">';
 const KIDS=[
-  {id:'a',name:'하늘',skin:'#FFDCC0',hair:'#3A2A20'},
-  {id:'b',name:'바다',skin:'#F2C29B',hair:'#1E1E2A'},
-  {id:'c',name:'별',skin:'#FFE3CC',hair:'#7A4A2A'},
-  {id:'d',name:'솔',skin:'#C98E62',hair:'#241812'}
+  {id:'a',name:'하늘',img:'haneul'},
+  {id:'b',name:'바다',img:'bada'},
+  {id:'c',name:'별',img:'byeol'},
+  {id:'d',name:'솔',img:'sol'}
 ];
 const $=s=>document.querySelector(s);
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
@@ -224,24 +219,21 @@ let scene=0, step=0, busy=false, done=new Set();
 
 function say(t){gtxt.textContent=t;gtxt.style.animation='none';void gtxt.offsetWidth;gtxt.style.animation='';}
 
-function pizzaSVG(cls='',id='pizza'){
-  let s=`<svg viewBox="0 0 260 260" class="${cls}" id="${id}" aria-label="피자 8조각"><circle cx="130" cy="130" r="124" fill="#fff" stroke="#E3ECF7" stroke-width="4"/>`;
-  const R=112, tops=[[-28,-60],[30,-50],[50,10],[20,55],[-30,52],[-58,8],[-10,-28],[10,20]];
+function pizzaSVG(){
+  let d='',g='';const R=126;
   for(let i=0;i<8;i++){
     const a1=(i*45-90)*Math.PI/180,a2=((i+1)*45-90)*Math.PI/180;
-    const x1=130+R*Math.cos(a1),y1=130+R*Math.sin(a1),x2=130+R*Math.cos(a2),y2=130+R*Math.sin(a2);
-    const mid=(i*45-67.5)*Math.PI/180;
-    const px=130+70*Math.cos(mid),py=130+70*Math.sin(mid), qx=130+38*Math.cos(mid+.25),qy=130+38*Math.sin(mid+.25);
-    s+=`<g class="slice" data-i="${i}"><path d="M130 130 L${x1.toFixed(1)} ${y1.toFixed(1)} A${R} ${R} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}Z" fill="#FFC233" stroke="#E9A04B" stroke-width="10" stroke-linejoin="round"/><circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="9" fill="#E8462A"/><circle cx="${qx.toFixed(1)}" cy="${qy.toFixed(1)}" r="6" fill="#E8462A"/><circle cx="${(px-14).toFixed(1)}" cy="${(py+8).toFixed(1)}" r="3" fill="#2E8B57"/></g>`;
+    d+=`<clipPath id="cp${i}"><path d="M130 130 L${(130+R*Math.cos(a1)).toFixed(1)} ${(130+R*Math.sin(a1)).toFixed(1)} A${R} ${R} 0 0 1 ${(130+R*Math.cos(a2)).toFixed(1)} ${(130+R*Math.sin(a2)).toFixed(1)}Z"/></clipPath>`;
+    g+=`<g class="slice" data-i="${i}"><image href="${PIZZA}" x="6" y="6" width="248" height="248" clip-path="url(#cp${i})"/></g>`;
   }
-  return s+'</svg>';
+  return `<svg viewBox="0 0 260 260" id="pizza" aria-label="피자 8조각"><defs>${d}</defs><circle cx="130" cy="130" r="128" fill="#fff" stroke="#E3ECF7" stroke-width="3"/>${g}</svg>`;
 }
 
 function tableHTML(){
   return `<div class="table">
     <div class="pz">${pizzaSVG()}<span class="left" id="left">남은 피자 8조각</span></div>
     ${KIDS.map(k=>`<div class="kid k-${k.id}" id="k-${k.id}">
-      <div class="face" id="f-${k.id}" style="--skin:${k.skin};--hair:${k.hair}"><i></i><i></i><u></u></div>
+      <img class="face" id="f-${k.id}" src="${FACE[k.img][0]}" alt="${k.name}">
       <div class="k-name">${k.name}</div>
       <div class="badges" id="b-${k.id}"></div>
       <div class="say" id="s-${k.id}"></div>
@@ -253,7 +245,7 @@ function head(tag,title){return `<div class="stage-head"><span class="tag">${tag
 
 function badge(kid,r){const b=$('#b-'+kid);b.insertAdjacentHTML('beforeend',`<span class="bd ${r}" data-r="${r}">${IC[r]}${ROLE[r]}</span>`)}
 function glow(r){document.querySelectorAll('.bd').forEach(b=>b.classList.toggle('glow',b.dataset.r===r))}
-function face(kid,m){const f=$('#f-'+kid);f.classList.remove('sad','happy');if(m)f.classList.add(m)}
+function face(kid,m){const f=$('#f-'+kid),k=KIDS.find(x=>x.id===kid);f.src=FACE[k.img][m==='happy'?1:m==='sad'?2:0];f.classList.remove('bump');void f.offsetWidth;f.classList.add('bump')}
 function talk(kid,t){
   document.querySelectorAll('.say').forEach(s=>s.classList.remove('on'));
   document.querySelectorAll('.kid').forEach(k=>k.classList.remove('talk'));
@@ -283,7 +275,7 @@ async function deal(plan){ // plan: {a:5,b:1,...}
 /* 장면 정의 */
 const SCENES=[
   {name:'시작',
-   render(){stage.innerHTML=`<div class="intro">${pizzaSVG('big','pz0')}<h2>피자 한 판,<br>어떻게 나누면 공평할까?</h2><p>피자 나누기로 나라의 일을 나누는 방법을 알아봐요.</p>
+   render(){stage.innerHTML=`<div class="intro"><img class="big" src="{{IMG:intro_table}}" alt="친구 넷이 피자를 앞에 두고 고민하는 모습"><h2>피자 한 판,<br>어떻게 나누면 공평할까?</h2><p>피자 나누기로 나라의 일을 나누는 방법을 알아봐요.</p>
      <div class="legend"><span class="bd r1">${IC.r1}정해요</span><span class="bd r2">${IC.r2}나눠요</span><span class="bd r3">${IC.r3}확인해요</span></div></div>`},
    steps:[()=>say('안녕하세요! 오늘은 피자를 나누면서 공부해 볼 거예요. [다음]을 눌러 시작해요.')]},
   {name:'혼자 하면?',
@@ -310,12 +302,13 @@ const SCENES=[
    ]},
   {name:'진짜 나라에서는',
    render(){
+    const PL=['{{IMG:place_gukhoe}}','{{IMG:place_jeongbu}}','{{IMG:place_beobwon}}'];
     const C=[['c1','r1','정해요','국회','법을 만들어요','나라의 규칙을 법이라고 해요.',['국회의원이 모여서 의논해요','새 법을 만들거나 고쳐요']],
              ['c2','r2','나눠요','정부','법대로 나라 일을 해요','정한 법에 따라 실제로 일해요.',['대통령과 장관이 일을 이끌어요','학교를 짓고 길을 만들어요']],
              ['c3','r3','확인해요','법원','법을 지켰는지 판단해요','잘잘못을 가려 줘요.',['판사가 재판을 해요','법을 어겼는지 판단해요']]];
     stage.innerHTML=head('알아보기','진짜 나라에서는 누가 할까?')+`<div class="cards">${C.map((c,i)=>`<button type="button" class="card3 ${c[0]}" data-i="${i}" aria-label="${c[2]} 카드 뒤집기"><div class="inner">
       <div class="side front"><span class="ic">${IC[c[1]]}</span><strong>${c[2]}</strong><small>눌러서 뒤집어 보세요</small></div>
-      <div class="side back"><span class="from">피자 나누기의 '${c[2]}'</span><strong>${c[3]}</strong><p>${c[4]}</p><span>${c[5]}</span><ul>${c[6].map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div class="side back"><span class="from">피자 나누기의 '${c[2]}'</span><img class="pl" src="${PL[i]}" alt="${c[3]}"><strong>${c[3]}</strong><p>${c[4]}</p><ul>${c[6].map(x=>`<li>${x}</li>`).join('')}</ul></div>
      </div></button>`).join('')}</div>
      <div class="watch" id="watch"><span><i class="dot" style="background:var(--gukhoe)"></i>국회</span>·<span><i class="dot" style="background:var(--jeongbu)"></i>정부</span>·<span><i class="dot" style="background:var(--beobwon)"></i>법원</span> 세 곳은 서로 지켜보며 한 곳이 너무 힘이 세지지 않게 해요.</div>`;
     const opened=new Set();
@@ -358,7 +351,7 @@ function showQ(){
   }));
 }
 function finish(){
-  stage.innerHTML=head('완료','삼권분립 이해 완료!')+`<div class="quiz finish"><div class="medal"><span style="background:var(--gukhoe)">${IC.r1}</span><span style="background:var(--jeongbu);animation-delay:.12s">${IC.r2}</span><span style="background:var(--beobwon);animation-delay:.24s">${IC.r3}</span></div>
+  stage.innerHTML=head('완료','삼권분립 이해 완료!')+`<div class="quiz finish"><div class="art"><img class="cheer" src="{{IMG:finish_cheer}}" alt="피자를 똑같이 나눠 들고 웃는 친구들"><img class="badge" src="{{IMG:badge_complete}}" alt="완료 메달"></div>
     <h3>${Q.length}문제 중 ${score}문제 한 번에 맞혔어요</h3><p>국회는 정하고, 정부는 하고, 법원은 확인해요.</p><button type="button" class="btn" id="again">처음부터 다시</button></div>`;
   say('잘했어요! 나라의 일을 나눠 맡고 서로 지켜보는 것, 이것이 삼권분립이에요.');
   done.add(4);drawSteps();nextBtn.disabled=true;
