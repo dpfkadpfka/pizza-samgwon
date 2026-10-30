@@ -92,9 +92,10 @@ img{-webkit-user-drag:none}
 .bd.r1.glow{background:var(--r1);color:#fff}.bd.r2.glow{background:var(--r2);color:#fff}.bd.r3.glow{background:var(--r3);color:#fff}
 @keyframes pop{from{transform:scale(.3);opacity:0}70%{transform:scale(1.1)}to{transform:none;opacity:1}}
 
-.say{position:absolute;left:50%;top:48px;transform:translateX(-50%);width:250px;background:#fff;border:4px solid var(--line);border-radius:22px;padding:12px 14px;font-weight:700;font-size:19px;line-height:1.35;text-align:center;z-index:8;display:none;box-shadow:0 5px 0 var(--line)}
+.say{position:absolute;left:50%;top:44px;margin-left:-130px;width:260px;transform-origin:50% 100%;background:#fff;border:4px solid var(--line);border-radius:22px;padding:12px 14px;font-weight:700;font-size:19px;line-height:1.35;text-align:center;z-index:8;display:none;box-shadow:0 5px 0 var(--line)}
 .say::after{content:"";position:absolute;left:50%;bottom:-17px;width:24px;height:24px;background:#fff;border-right:4px solid var(--line);border-bottom:4px solid var(--line);transform:translateX(-50%) rotate(45deg);border-radius:0 0 6px 0}
-.say.on{display:block;animation:pop .35s both}
+.say.on{display:block;animation:sayPop .35s both}
+@keyframes sayPop{from{transform:scale(.4) translateY(20px);opacity:0}70%{transform:scale(1.06)}to{transform:none;opacity:1}}
 
 /* 피자 */
 .pz{position:absolute;left:640px;top:150px;width:270px;transform:translateX(-50%);z-index:4;text-align:center}
