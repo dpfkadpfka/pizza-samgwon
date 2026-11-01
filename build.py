@@ -10,10 +10,12 @@ r=sub(F+'kfonts-hakgyoansim-bareondotum-0.1.0/HakgyoansimBareondotumR.woff2','r.
 b=sub(F+'kfonts-hakgyoansim-bareondotum-0.1.0/HakgyoansimBareondotumB.woff2','b.woff2')
 m=sub(F+'kossuyeom/HakgyoansimKossuyeomR.ttf','m.woff2')
 c=sub(F+'cute/OwnglyphEuiyeonChae.ttf','c.woff2')
+h=sub(F+'hyejaroun/GSHyejarounBold.ttf','h.woff2')
 css=f'''@font-face{{font-family:"HakgyoBareun";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{r}) format("woff2")}}
 @font-face{{font-family:"HakgyoBareun";font-weight:700;font-display:swap;src:url(data:font/woff2;base64,{b}) format("woff2")}}
 @font-face{{font-family:"HakgyoKossuyeom";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{m}) format("woff2")}}
-@font-face{{font-family:"CuteHand";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{c}) format("woff2")}}'''
+@font-face{{font-family:"CuteHand";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{c}) format("woff2")}}
+@font-face{{font-family:"Hyejaroun";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{h}) format("woff2")}}'''
 img='data:image/webp;base64,'+base64.b64encode(open('yeram.webp','rb').read()).decode()
 out=src.replace('/*FONTS*/',css,1)
 import re
