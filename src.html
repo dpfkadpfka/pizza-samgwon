@@ -15,9 +15,9 @@
   --crust:#C0844A; --crust2:#9A6332; --crust3:#6E431F;
   --basil:#2E8B57; --basill:#E3F3EA;
   --ink:#2A1A12; --ink2:#6F5747; --ink3:#A99381;
-  --r1:#3C6FD8; --r1l:#E9EFFC; --r1d:#2B55B0;
-  --r2:#2E8B57; --r2l:#E3F3EA; --r2d:#1F6B41;
-  --r3:#7C52C9; --r3l:#F0EAFA; --r3d:#5D38A6;
+  --r1:#E0663A; --r1l:#FDEDE4; --r1d:#B04A22;
+  --r2:#3F8C55; --r2l:#E6F2E8; --r2d:#2C6A3E;
+  --r3:#8E4A6C; --r3l:#F6EAF0; --r3d:#6E3352;
   --sh:0 1px 0 rgba(110,67,31,.06),0 8px 24px rgba(110,67,31,.12);
   --shb:0 2px 0 rgba(110,67,31,.08),0 18px 40px rgba(110,67,31,.18);
   --f-title:"Hyejaroun","HakgyoKossuyeom","HakgyoBareun",sans-serif;
@@ -192,6 +192,14 @@ img{-webkit-user-drag:none}
 .next:active{transform:scale(.97)}
 .next[disabled]{background:var(--cream2);color:var(--ink3);cursor:default;transform:none}
 .credit{position:absolute;right:30px;bottom:3px;font-size:10px;color:var(--ink3);z-index:16}
+
+/* 역할 배지: 색으로 바로 구분되게 */
+.bd{--c:var(--ink2);--l:var(--cream);--d:var(--ink);height:34px;padding:0 13px 0 3px;gap:6px;font-size:15px;background:var(--l);color:var(--d);box-shadow:inset 0 0 0 2px var(--c)}
+.bd.r1{--c:var(--r1);--l:var(--r1l);--d:var(--r1d)}.bd.r2{--c:var(--r2);--l:var(--r2l);--d:var(--r2d)}.bd.r3{--c:var(--r3);--l:var(--r3l);--d:var(--r3d)}
+.bd img{width:28px;height:28px;padding:3px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--c)}
+.bd.glow,.intro .bd{background:var(--c);color:#fff;box-shadow:0 4px 10px color-mix(in srgb,var(--c) 35%,transparent)}
+.bd.glow img,.intro .bd img{box-shadow:none}
+.intro .bd{height:42px;font-size:17px;padding:0 16px 0 4px}.intro .bd img{width:34px;height:34px}
 :focus-visible{outline:3px solid var(--tomato);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
