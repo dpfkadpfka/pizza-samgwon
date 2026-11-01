@@ -8,10 +8,10 @@ def sub(path,out):
     return base64.b64encode(open(out,'rb').read()).decode()
 r=sub(F+'kfonts-hakgyoansim-bareondotum-0.1.0/HakgyoansimBareondotumR.woff2','r.woff2')
 b=sub(F+'kfonts-hakgyoansim-bareondotum-0.1.0/HakgyoansimBareondotumB.woff2','b.woff2')
-m=sub(F+'kfonts-hakgyoansim-monggeulmonggeul-0.1.0/HakgyoansimMonggeulmonggeulR.woff2','m.woff2')
+m=sub(F+'kfonts-hakgyoansim-wooju-0.1.0/HakgyoansimWoojuR.woff2','m.woff2')
 css=f'''@font-face{{font-family:"HakgyoBareun";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{r}) format("woff2")}}
 @font-face{{font-family:"HakgyoBareun";font-weight:700;font-display:swap;src:url(data:font/woff2;base64,{b}) format("woff2")}}
-@font-face{{font-family:"HakgyoMong";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{m}) format("woff2")}}'''
+@font-face{{font-family:"HakgyoWooju";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{m}) format("woff2")}}'''
 img='data:image/webp;base64,'+base64.b64encode(open('yeram.webp','rb').read()).decode()
 out=src.replace('/*FONTS*/',css,1).replace('/*YERAM*/',img,1)
 import re
