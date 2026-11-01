@@ -38,7 +38,7 @@ img{-webkit-user-drag:none}
 .brand svg{width:40px;height:40px}
 .brand h1{margin:0;font-family:var(--f-title);font-weight:400;font-size:27px;letter-spacing:-.3px;color:var(--ink)}
 .brand h1 em{font-style:normal;color:var(--brand)}
-.path{display:flex;align-items:center;gap:4px;background:var(--surface);padding:5px;border-radius:999px;box-shadow:var(--sh1)}
+.path{display:flex;align-items:center;gap:2px;background:var(--surface);padding:5px;border-radius:999px;box-shadow:var(--sh1)}
 .node{display:flex;align-items:center;gap:8px;height:42px;padding:0 16px 0 8px;border-radius:999px;background:transparent;font-weight:700;font-size:16px;color:var(--ink2);transition:background .2s,color .2s}
 .node b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--bg2);color:var(--ink2);font-size:13px}
 .node:hover{background:var(--surface2)}
@@ -46,6 +46,8 @@ img{-webkit-user-drag:none}
 .node.on b{background:rgba(255,255,255,.22);color:#fff}
 .node.done b{background:var(--r2l);color:var(--r2d)}
 .link{display:none}
+.right{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;border-radius:14px;box-shadow:var(--sh1);background:#fff}
 
 /* 장면 */
 .scene{position:absolute;left:0;right:0;top:84px;height:560px;overflow:hidden}
@@ -182,8 +184,8 @@ img{-webkit-user-drag:none}
 .dock{position:absolute;left:24px;right:24px;bottom:20px;height:136px;background:var(--surface);border-radius:30px;box-shadow:var(--sh2);z-index:15}
 .guide{position:absolute;left:18px;bottom:0;width:118px;z-index:16;transform-origin:bottom center;animation:bob 3.4s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-4px)}}
-.bubble{position:absolute;left:150px;right:236px;top:18px;bottom:18px;background:var(--surface2);border-radius:22px;padding:0 26px;display:flex;flex-direction:column;justify-content:center;gap:2px;z-index:16}
-.bubble::before{content:"";position:absolute;left:-7px;top:38px;width:16px;height:16px;background:var(--surface2);transform:rotate(45deg);border-radius:3px}
+.bubble{position:absolute;left:18px;right:236px;top:18px;bottom:18px;background:var(--surface2);border-radius:22px;padding:0 26px;display:flex;flex-direction:column;justify-content:center;gap:2px;z-index:16}
+.bubble::before{display:none;content:"";position:absolute;left:-7px;top:38px;width:16px;height:16px;background:var(--surface2);transform:rotate(45deg);border-radius:3px}
 .bubble .who{font-size:13px;font-weight:700;color:var(--brand)}
 .bubble .txt{font-size:23px;font-weight:700;line-height:1.4;color:var(--ink);animation:type .35s both}
 @keyframes type{from{opacity:0;transform:translateY(5px)}}
@@ -206,13 +208,12 @@ img{-webkit-user-drag:none}
       <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 24 L24 3 A21 21 0 0 1 42.2 34.5Z" fill="#3B6FF0"/><path d="M24 24 L42.2 34.5 A21 21 0 0 1 5.8 34.5Z" fill="#14A06A"/><path d="M24 24 L5.8 34.5 A21 21 0 0 1 24 3Z" fill="#7B55E8"/><circle cx="24" cy="24" r="7" fill="#fff"/></svg>
       <h1>피자로 배우는 <em>삼권분립</em></h1>
     </div>
-    <nav class="path" id="steps" aria-label="단계"></nav>
+    <div class="right"><nav class="path" id="steps" aria-label="단계"></nav><img class="logo" src="{{IMG:logo_head}}" alt="예람쌤"></div>
   </header>
 
   <main class="scene" id="stage"></main>
 
   <footer class="dock">
-    <img class="guide" src="/*YERAM*/" alt="예람쌤">
     <div class="bubble" aria-live="polite"><span class="who">예람쌤</span><span class="txt" id="gtxt"></span></div>
     <button class="next" id="next" type="button">다음 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
   </footer>

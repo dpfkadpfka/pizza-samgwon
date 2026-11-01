@@ -13,7 +13,7 @@ css=f'''@font-face{{font-family:"HakgyoBareun";font-weight:400;font-display:swap
 @font-face{{font-family:"HakgyoBareun";font-weight:700;font-display:swap;src:url(data:font/woff2;base64,{b}) format("woff2")}}
 @font-face{{font-family:"HakgyoWooju";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{m}) format("woff2")}}'''
 img='data:image/webp;base64,'+base64.b64encode(open('yeram.webp','rb').read()).decode()
-out=src.replace('/*FONTS*/',css,1).replace('/*YERAM*/',img,1)
+out=src.replace('/*FONTS*/',css,1)
 import re
 def emb(m):
     f='img/'+m.group(1)+'.webp'
